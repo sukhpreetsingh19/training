@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 from training.models import Book
+from rest_framework.permissions import IsAdminUser
 
 def home(request):
     return HttpResponse('Hello, World!')
@@ -12,3 +13,4 @@ def home(request):
 class BookLisView(generic.ListView):
     model = Book
     template_name = "books/book_list.html"
+    # permission_classes = [IsAdminUser]
